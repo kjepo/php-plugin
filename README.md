@@ -1,9 +1,18 @@
 # PHP form processing scripts as standalone plugins
 
+## Abstract
+This is a proposal for creating independent plugins in a web application that
+can be put in a plugin folder and appear as buttons in the HTML document which
+otherwise has absolutely no knowledge of what the plugin does, or needs.
+
+## Typical solution
+
 In a typical web application there is a form of some sort, written in HTML,
 which contains an action call to a server side script that processes the
 form data, and possibly returns data to some javascript code which is inserted
 into the DOM.
+
+<img src="usual-solution.jpg">
 
 In this simple example we have a form that asks for the first and last name.
 Upon "Submit", the script `name.php` is called to process the form and return
@@ -71,12 +80,12 @@ echo "Greetings {$firstname} {$lastname}!";
 ?>
 ````
 
-# Problem
+## Problem
 
 The problem with the above solution is that knowledge of the form is an intrinsic part of the HTML document
 in `index.php`, but `name.php` also knows the names of the the form elements.  
 
-# An alternative solution
+## An alternative solution
 
 In the following example, the `name.php` is placed in a plugins folder and has been altered
 to serve the form it needs:
@@ -111,6 +120,9 @@ if (count($_POST)) {
 When the plugin is called with no arguments, it returns the form it needs.
 The front end application can then insert this form into the DOM and upon
 submit, call the plugin again, now with form data.
+
+<img src="new-solution.jpg">
+
 
 File `plugin.html`:
 ````{verbatim}
