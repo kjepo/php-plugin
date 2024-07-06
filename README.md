@@ -18,8 +18,6 @@ In this simple example we have a form that asks for the first and last name.
 Upon "Submit", the script `name.php` is called to process the form and return
 a string which is then inserted into the DOM.
 
-<img src="standardform.png">
-
 File `index.html`:
 ````{verbatim}
 <!doctype html>
