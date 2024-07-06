@@ -80,8 +80,10 @@ echo "Greetings {$firstname} {$lastname}!";
 
 ## Problem
 
-The problem with the above solution is that knowledge of the form is an intrinsic part of the HTML document
-in `index.php`, but `name.php` also knows the names of the the form elements.  
+The problem with the above solution is that knowledge of the form is part of the HTML document
+in `index.php`, but `name.php` is really the module that should define and use the form.
+Thus, it is difficult to create universal PHP plugins without defining what sort of parameters
+they need in the HTML document.
 
 ## An alternative solution
 
